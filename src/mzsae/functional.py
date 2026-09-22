@@ -14,7 +14,8 @@ except ImportError:
     HAS_TORCH = False
 
 from .engine import MZSAEKVCache
-from .metal_backend import MetalBackend
+from .backends.base import MZSAEBackend
+from .backends.dispatcher import get_backend
 
 def mzsae_with_kvcache(
     q: Any,                     # [batch=1, 1, num_heads, head_dim] or [num_heads, head_dim]
@@ -23,7 +24,7 @@ def mzsae_with_kvcache(
     cache: MZSAEKVCache,
     tau: float = 16.0,
     rope_base: float = 1000000.0,
-    metal_backend: Optional[MetalBackend] = None,
+    metal_backend: Optional[MZSAEBackend] = None,
     num_splits: int = 64,
     use_selective: bool = True,
     return_telemetry: bool = False
@@ -62,7 +63,7 @@ def mzsae_with_kvcache(
     cache.append_kv(k_np, v_np)
 
     if metal_backend is None:
-        metal_backend = MetalBackend()
+        metal_backend = get_backend("auto", head_dim=cache.head_dim)
 
     bufs = cache.get_metal_buffers()
     has_body_blocks = bufs["sentinels"].shape[0] > 0

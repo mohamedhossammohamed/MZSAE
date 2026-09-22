@@ -82,7 +82,10 @@ def get_backend(
             return MetalBackend()
         except Exception as e:
             # Fallback to CPU if metal failed and config allows fallback
-            if config is not None and getattr(config, "use_cpu_fallback", True):
+            use_fallback = (
+                getattr(config, "use_cpu_fallback", True) if config is not None else True
+            )
+            if use_fallback:
                 return CPUReferenceBackend(head_dim=head_dim)
             raise RuntimeError(
                 f"Failed to initialize Metal backend: {e}. Set use_cpu_fallback=True or specify backend='cpu'."

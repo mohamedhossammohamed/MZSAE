@@ -85,6 +85,13 @@ class MZSAEEngine:
             backend_type = "metal" if use_metal else "cpu"
             self.backend = get_backend(backend_type, config=config, head_dim=head_dim)
 
+        try:
+            from ..backends.metal.runtime import MetalBackend
+
+            self.use_metal = isinstance(self.backend, MetalBackend)
+        except Exception:
+            self.use_metal = False
+
         self.veto = DirectionalVeto(cos_threshold=0.40)
         self.policy = TDAttnPolicy()
         self.telemetry = TelemetryRingBuffer(max_records=1024)

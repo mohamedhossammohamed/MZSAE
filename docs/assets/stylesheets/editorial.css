@@ -1,5 +1,5 @@
 /*
- * MZSAE Research Documentation — Anthropic-style Editorial Design System
+ * MZSAE Research Documentation — Editorial Research Design System
  * Palette: Warm Ivory (#FAF9F5), Sand (#F0EDE6), Paper (#FFFFFF)
  * Typography: Source Serif 4 (Headlines), Inter (Body & UI), JetBrains Mono (Code)
  * Accents: Terracotta (#C96442), Charcoal Ink (#191919), Hairline Gray (#E4E0D6)
@@ -243,7 +243,7 @@ body, .md-typeset {
   border-color: var(--clay) !important;
 }
 
-/* Buttons -> Anthropic Pill Style */
+/* Buttons -> Editorial Pill Style */
 .md-typeset .md-button {
   border-radius: 999px !important;
   padding: 9px 22px !important;

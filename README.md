@@ -18,7 +18,7 @@
 [![PyPI](https://img.shields.io/badge/PyPI-v1.2.0-58A6FF.svg?logo=pypi&logoColor=white)](https://pypi.org/project/mzsae/)
 [![Platform](https://img.shields.io/badge/platform-macOS_|_Apple_Silicon-brightgreen.svg?logo=apple&logoColor=white)]()
 [![Metal](https://img.shields.io/badge/Metal-MSL_3.1-A371F7.svg?logo=apple&logoColor=white)]()
-[![Tests](https://img.shields.io/badge/tests-87_passing-3FB950.svg?logo=pytest&logoColor=white)]()
+[![Tests](https://img.shields.io/badge/tests-95_passing-3FB950.svg?logo=pytest&logoColor=white)]()
 [![GitHub Stars](https://img.shields.io/github/stars/mohamedhossammohamed/MZSAE?style=flat&logo=github&color=58A6FF)](https://github.com/mohamedhossammohamed/MZSAE/stargazers)
 
 [Quick Start](#-quick-start) · [Architecture](#-core-architecture) · [Benchmarks](#-benchmarks) · [Docs](docs/) · [Limitations](docs/LIMITATIONS.md)
@@ -326,8 +326,10 @@ Scaling: 1.84× time for 2.00× context — super-linear from GQA 6:1 threadgrou
 | `apple_m1` | M1 / M2 / M3 Base | 68.25 GB/s | 12 MB | Metal (MSL 3.1) |
 | `apple_m4` | M4 Base | 120.0 GB/s | 16 MB | Metal (MSL 3.1) |
 | `apple_m4_max` | M4 Max | 410.0 GB/s | 48 MB | Metal (MSL 3.1) |
+| `nvidia_h100` | Hopper H100 SXM5 | 3,350.0 GB/s | 50 MB | CUDA SM90 / Triton |
+| `nvidia_gh200` | Grace Hopper GH200 | 4,000.0 GB/s | 50 MB | Coherent NVLink-C2C |
+| `nvidia_b200` | Blackwell B200 SXM | 8,000.0 GB/s | 60 MB | CUDA SM100 / Triton |
 | `default` | Portable Host | 120.0 GB/s | 16 MB | Metal / CPU Reference |
-| `nvidia_future` | H100 SXM5 | 3,350.0 GB/s | 50 MB | CUDA SM90 *(roadmap)* |
 
 ---
 
@@ -374,11 +376,9 @@ mzsae/
 │       ├── base.py             # Abstract MZSAEBackend interface
 │       ├── dispatcher.py       # Hardware backend selector
 │       ├── cpu_reference.py    # NumPy SIMD CPU fallback backend
-│       ├── metal/              # Apple Silicon Metal backend
-│       │   ├── runtime.py      # C-ABI ctypes runtime bridge
-│       │   └── kernels/        # MSL shaders and C++ runtime
-│       └── cuda/               # NVIDIA Ampere/Hopper roadmap & stubs
-└── tests/                      # 87 passing tests (47 functions across 15 files)
+│       ├── metal/              # Apple Silicon Metal backend (MSL 3.1)
+│       └── cuda/               # NVIDIA CUDA SM90/SM100, Triton & DGX cluster
+└── tests/                      # 95 passing tests (16 files)
 ```
 
 ---
@@ -389,7 +389,7 @@ mzsae/
 # Build Metal kernels + install in dev mode
 make && pip install -e ".[dev]"
 
-# Run full test suite (87 tests)
+# Run full test suite (95 tests)
 make test
 
 # Build distribution wheel

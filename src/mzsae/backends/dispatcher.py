@@ -24,6 +24,16 @@ def is_metal_available() -> bool:
         return False
 
 
+def is_cuda_available() -> bool:
+    """Checks if NVIDIA CUDA GPU device and runtime are available."""
+    try:
+        import torch
+
+        return bool(torch.cuda.is_available() and torch.cuda.device_count() > 0)
+    except Exception:
+        return False
+
+
 def get_backend(
     name: str = "auto",
     config: Optional[Any] = None,
@@ -31,20 +41,37 @@ def get_backend(
 ) -> MZSAEBackend:
     """
     Instantiates and returns the appropriate hardware backend.
+    Priority order for 'auto':
+      1. NVIDIA CUDA (if torch.cuda.is_available())
+      2. Apple Silicon Metal (if macOS arm64 with Metal framework)
+      3. CPU Reference (Fallback)
     Args:
-      name: 'auto', 'metal', 'cpu', 'cuda'
+      name: 'auto', 'cuda', 'metal', 'cpu'
       config: Optional MZSAEConfig instance
       head_dim: Token head dimension (default 128)
     """
     target = name.lower()
 
     if target == "auto":
-        if is_metal_available():
+        if is_cuda_available():
+            target = "cuda"
+        elif is_metal_available():
             target = "metal"
         else:
             target = "cpu"
 
-    if target == "metal":
+    if target == "cuda":
+        from .cuda import CUDABackend
+
+        is_gh = False
+        if config is not None:
+            hw = getattr(config, "hardware", None)
+            if hw is not None:
+                is_gh = getattr(hw, "nvlink_c2c_coherent", False)
+
+        return CUDABackend(is_grace_hopper=is_gh)
+
+    elif target == "metal":
         from .metal.runtime import MetalBackend
 
         # Metal C-ABI kernels are compiled for standard head_dim=128
@@ -64,12 +91,7 @@ def get_backend(
     elif target in ("cpu", "cpu_reference"):
         return CPUReferenceBackend(head_dim=head_dim)
 
-    elif target == "cuda":
-        from .cuda import CUDABackend
-
-        return CUDABackend()
-
     else:
         raise ValueError(
-            f"Unknown backend '{name}'. Available options: 'auto', 'metal', 'cpu', 'cuda'."
+            f"Unknown backend '{name}'. Available options: 'auto', 'cuda', 'metal', 'cpu'."
         )

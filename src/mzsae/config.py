@@ -26,6 +26,15 @@ class HardwareProfile:
     l2_cache_mb: float = 16.0
     sram_size_kb: float = 32.0
     recommended_threadgroup_size: int = 256
+    compute_capability: str = "9.0"
+    persistent_l2_window_mb: float = 0.0
+    tma_supported: bool = False
+    nvlink_bandwidth_gbps: float = 0.0
+    nvlink_c2c_coherent: bool = False
+    nvlink_c2c_bandwidth_gbps: float = 0.0
+    host_memory_type: str = ""
+    host_memory_gb: float = 0.0
+    nvlink_generation: int = 0
 
 
 @dataclass
@@ -49,6 +58,7 @@ class EvictionConfig:
     ring_buffer_kb: int = 128
     sleep_batch_size: int = 32
     sleep_steps: int = 10
+    zero_copy_telemetry: bool = False
 
 
 @dataclass

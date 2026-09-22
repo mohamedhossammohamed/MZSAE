@@ -1,37 +1,15 @@
-"""CUDA backend placeholder for MZSAE."""
+"""
+NVIDIA CUDA & Enterprise DGX Backend Package for MZSAE
+"""
 
-from ..base import MZSAEBackend
+from .runtime import CUDABackend, CUDAGraphManager
+from .l2_persistence import L2CachePersistenceManager
+from .dgx_topology import DGXTopologyManager, TPShardingConfig
 
-
-class CUDABackend(MZSAEBackend):
-    """
-    Placeholder for NVIDIA CUDA backend.
-    """
-
-    def __init__(self):
-        raise NotImplementedError(
-            "CUDA backend is planned for v1.3.0. Currently supported backends: 'metal', 'cpu'."
-        )
-
-    def fused_decode(self, *args, **kwargs):
-        raise NotImplementedError
-
-    def selective_decode(self, *args, **kwargs):
-        raise NotImplementedError
-
-    def dense_decode(self, *args, **kwargs):
-        raise NotImplementedError
-
-    def clear_cache(self):
-        pass
-
-    @property
-    def device_name(self) -> str:
-        return "NVIDIA CUDA (Unimplemented)"
-
-    @property
-    def is_available(self) -> bool:
-        return False
-
-
-__all__ = ["CUDABackend"]
+__all__ = [
+    "CUDABackend",
+    "CUDAGraphManager",
+    "L2CachePersistenceManager",
+    "DGXTopologyManager",
+    "TPShardingConfig",
+]

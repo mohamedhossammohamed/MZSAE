@@ -78,8 +78,8 @@ def test_dispatcher_selection():
     b_auto = get_backend("auto")
     assert b_auto.is_available
 
-    with pytest.raises(NotImplementedError):
-        get_backend("cuda")
+    b_cuda = get_backend("cuda")
+    assert b_cuda.is_available
 
     with pytest.raises(ValueError):
         get_backend("invalid_unknown_backend")

@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions & compiled binaries
+*.so
+*.dylib
+*.o
+*.a
+libmzsae_metal.dylib
+tools_llamacpp/capture_qkv
+!src/mzsae/libmzsae_metal.dylib
+!src/mzsae/backends/metal/libmzsae_metal.dylib
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Pytest / coverage / hypothesis
+.pytest_cache/
+.coverage
+htmlcov/
+.hypothesis/
+
+# Large model checkpoints & weight files
+models/
+*.gguf
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Large binary trace captures & experimental dumps
+captures/
+fastattn/
+fastattn_verify/
+fastattn_verify2/
+fastattn_verify3/
+fastattn_verify4/
+work_docs/
+work_gguf/
+
+# Logs & temp locks
+*.log
+logs/
+*.pid
+/tmp/mzsae_gpu.lock
+/tmp/fastattn_memfix_gpu.lock
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+

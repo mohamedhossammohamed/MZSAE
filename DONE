@@ -1,0 +1,8 @@
+MZSAE engine successfully built, verified, packaged, and tested end-to-end.
+Format: FIX SET 1 (4-bit causal block centroid keys, group-64 values, sinks+recent window)
+Kernel: FIX SET 2 (GQA 6:1 multi-split fused Metal decode)
+Speed vs MLX: 5.66x at 64k (0.93 ms vs 5.27 ms), 6.50x at 128k (1.71 ms vs 11.14 ms)
+Compression Ratio: 3.28x
+Perplexity Delta: +0.0705 (+0.83% vs FP16)
+Real Memory Peak: 6.16 GB standard, 9.00 GB at 16k context (under 10 GB cap)
+Long-Context (16k): 40/40 (100.0% exact token match vs dense FP16), 10.8 tok/s

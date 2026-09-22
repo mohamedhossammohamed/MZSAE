@@ -1,0 +1,42 @@
+# Default configuration for MZSAE
+hardware:
+  device_type: "apple_silicon"
+  chip_name: "Apple Silicon"
+  memory_bandwidth_gbps: 120.0
+  l2_cache_mb: 16.0
+  sram_size_kb: 32.0
+  recommended_threadgroup_size: 256
+
+kernel:
+  block_size_tokens: 64
+  head_dim: 128
+  num_kv_heads: 2
+  num_query_heads: 12
+  slow_rope_dims: 16
+  sentinel_bytes: 64
+  threadgroup_size: 256
+  num_splits: 64
+
+eviction:
+  default_tau: 16.0
+  acc_veto_threshold: 0.40
+  ring_buffer_kb: 128
+  sleep_batch_size: 32
+  sleep_steps: 10
+
+cache:
+  num_sinks: 4
+  recent_win: 64
+  max_active_blocks: null
+  capacity_blocks: null
+
+model_weights:
+  quantization_type: "fp16"
+  quantization_bits: 16
+  dynamic_range_scale: 1.0
+  tau_multiplier: 1.0
+  sentinel_scale: 1.0
+
+use_metal: true
+use_cpu_fallback: true
+

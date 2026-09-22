@@ -18,123 +18,157 @@
   --ink:#191919; --ink2:#55524B; --ink3:#8A867D;
   --line:#E4E0D6; --clay:#C96442; --clay-d:#A84F2F; --moss:#3F6B4F;
   --serif:"Source Serif 4",Georgia,serif;
-  --sans:"Inter",-apple-system,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Monaco,monospace;
   --max:1160px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
-.eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay)}
-h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.015em;line-height:1.12}
-h1{font-size:clamp(42px,5.6vw,68px)}
-h2{font-size:clamp(30px,3.4vw,42px);margin-bottom:18px}
-p.lede{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:62ch}
+.eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay);display:inline-block;margin-bottom:12px}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:-.015em;line-height:1.15;color:var(--ink)}
+h1{font-size:clamp(40px,5.4vw,66px)}
+h2{font-size:clamp(28px,3.2vw,40px);margin-bottom:16px}
+h3{font-size:clamp(20px,2.2vw,26px);margin-bottom:12px}
+h4{font-size:17px;font-weight:600;margin-bottom:8px}
+p.lede{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:64ch;line-height:1.6}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 a{color:inherit}
 
-/* Nav */
-nav{position:sticky;top:0;z-index:50;background:rgba(250,249,245,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.01em;text-decoration:none}
+/* Header & Nav */
+nav.site-nav{position:sticky;top:0;z-index:50;background:rgba(250,249,245,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.site-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-.01em;text-decoration:none;color:var(--ink)}
 .logo span{color:var(--clay)}
-nav ul{display:flex;gap:28px;list-style:none;align-items:center}
-nav ul a{font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none}
-nav ul a:hover{color:var(--ink)}
-.btn{display:inline-block;padding:11px 22px;border-radius:999px;font-size:14.5px;font-weight:500;text-decoration:none;border:1px solid var(--ink);transition:.18s}
+nav.site-nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav.site-nav ul a{font-size:14px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .18s}
+nav.site-nav ul a:hover,nav.site-nav ul a.active{color:var(--ink)}
+.btn{display:inline-block;padding:10px 22px;border-radius:999px;font-size:14px;font-weight:500;text-decoration:none;border:1px solid var(--ink);transition:.18s}
 .btn.primary{background:var(--ink);color:var(--ivory)}
-.btn.primary:hover{background:var(--clay-d);border-color:var(--clay-d)}
+.btn.primary:hover{background:var(--clay-d);border-color:var(--clay-d);color:#fff}
 .btn.ghost{border-color:var(--line);color:var(--ink)}
 .btn.ghost:hover{border-color:var(--ink)}
-.btn.sm{padding:8px 16px;font-size:13.5px}
+.btn.sm{padding:7px 16px;font-size:13.5px}
 
 /* Hero */
-header.hero{padding:110px 0 84px;border-bottom:1px solid var(--line)}
-header.hero h1{margin:22px 0 26px;max-width:16ch}
-.hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:38px;font-family:var(--mono);font-size:12.5px;color:var(--ink3)}
-.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
-.install{font-family:var(--mono);font-size:14px;background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:11px 20px;color:var(--ink2)}
+header.hero{padding:96px 0 80px;border-bottom:1px solid var(--line)}
+header.hero h1{margin:18px 0 24px;max-width:16ch}
+.hero-meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:36px;font-family:var(--mono);font-size:12.5px;color:var(--ink3)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:34px}
+.install{font-family:var(--mono);font-size:13.5px;background:var(--sand);border:1px solid var(--line);border-radius:999px;padding:9px 20px;color:var(--ink2)}
 .install b{color:var(--clay);font-weight:500}
 
 /* Metric band */
 .metrics{border-bottom:1px solid var(--line);background:var(--paper)}
-.metrics .wrap{display:grid;grid-template-columns:repeat(4,1fr);}
-.metric{padding:44px 28px;border-left:1px solid var(--line)}
+.metrics .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.metric{padding:40px 26px;border-left:1px solid var(--line)}
 .metric:first-child{border-left:none}
-.metric .v{font-family:var(--mono);font-size:clamp(26px,2.6vw,36px);font-weight:500;letter-spacing:-.02em}
+.metric .v{font-family:var(--mono);font-size:clamp(26px,2.6vw,36px);font-weight:500;letter-spacing:-.02em;line-height:1.1}
 .metric .v em{font-style:normal;color:var(--clay)}
-.metric .l{font-size:13px;color:var(--ink2);margin-top:8px;max-width:22ch}
+.metric .l{font-size:13px;color:var(--ink2);margin-top:8px;max-width:24ch;line-height:1.4}
 .fineprint{font-size:12.5px;color:var(--ink3);padding:14px 0;border-bottom:1px solid var(--line)}
-.fineprint .wrap{padding-top:14px;padding-bottom:14px}
+.fineprint .wrap{padding-top:12px;padding-bottom:12px}
 
 /* Sections */
-section{padding:96px 0;border-bottom:1px solid var(--line)}
+section{padding:92px 0;border-bottom:1px solid var(--line)}
 section.alt{background:var(--sand)}
 .split{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
-.split aside{font-family:var(--mono);font-size:13px;line-height:1.9;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px 28px;white-space:pre}
-.prose p{color:var(--ink2);margin-bottom:16px;max-width:60ch}
+.split aside{font-family:var(--mono);font-size:13px;line-height:1.85;color:var(--ink2);background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:26px 28px;white-space:pre}
+.prose p{color:var(--ink2);margin-bottom:16px;max-width:62ch}
 .prose p strong{color:var(--ink);font-weight:600}
 
 /* Mechanism cards */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:30px 28px;transition:border-color .18s}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:30px 26px;transition:border-color .18s;display:flex;flex-direction:column}
 .card:hover{border-color:var(--clay)}
-.card .n{font-family:var(--mono);font-size:12px;color:var(--clay);letter-spacing:.1em}
-.card h3{font-size:22px;margin:14px 0 12px}
-.card p{font-size:14.5px;color:var(--ink2)}
-.card .eq{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink);margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.card .n{font-family:var(--mono);font-size:12px;color:var(--clay);letter-spacing:.1em;margin-bottom:8px}
+.card h3{font-size:22px;margin:8px 0 12px}
+.card p{font-size:14.5px;color:var(--ink2);flex-grow:1;line-height:1.55}
+.card .eq{font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--ink);margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
 
-/* Table */
-table{width:100%;border-collapse:collapse;margin-top:44px;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-th{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);text-align:left;padding:16px 18px;border-bottom:1px solid var(--line)}
-td{padding:14px 18px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink2)}
+/* Tables */
+table{width:100%;border-collapse:collapse;margin-top:36px;background:var(--paper);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);background:var(--sand)}
+td{padding:13px 18px;font-size:14px;border-bottom:1px solid var(--line);color:var(--ink2)}
 tr:last-child td{border-bottom:none}
 td.m{font-family:var(--mono);font-size:13px;color:var(--ink)}
 td .up{color:var(--clay);font-weight:500}
 td .ok{color:var(--moss)}
 
 /* Chips */
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .chip{font-family:var(--mono);font-size:12.5px;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink2)}
 .chip.hot{border-color:var(--clay);color:var(--clay-d)}
 
-/* Honesty */
-.honest{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--clay);border-radius:10px;padding:34px 36px;margin-top:40px}
-.honest h3{font-size:20px;margin-bottom:12px}
-.honest p{font-size:15px;color:var(--ink2);max-width:70ch}
-.honest a{color:var(--clay-d)}
+/* Code & Pre */
+pre{background:var(--sand);border:1px solid var(--line);border-radius:10px;padding:22px 24px;font-family:var(--mono);font-size:13px;line-height:1.8;color:var(--ink);overflow-x:auto;margin:20px 0}
+code{font-family:var(--mono);font-size:88%}
+p code,li code{background:var(--sand);border:1px solid var(--line);border-radius:4px;padding:2px 6px;color:var(--ink)}
+pre .c{color:var(--ink3)} pre .k{color:var(--clay-d)} pre .s{color:var(--moss)}
 
-/* Code */
-pre{background:var(--sand);border:1px solid var(--line);border-radius:10px;padding:26px 28px;font-family:var(--mono);font-size:13.5px;line-height:1.85;color:var(--ink);overflow-x:auto;margin-top:32px}
-pre .c{color:var(--ink3)} pre .k{color:var(--clay-d)}
+/* Honesty Callout */
+.honest{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--clay);border-radius:10px;padding:32px 34px;margin-top:36px}
+.honest h3{font-size:20px;margin-bottom:10px}
+.honest p{font-size:15px;color:var(--ink2);max-width:72ch;line-height:1.6}
+.honest a{color:var(--clay-d);font-weight:500}
+
+/* ==========================================================================
+   Documentation Section: Seamless In-Page Editorial Suite
+   ========================================================================== */
+#docs{background:var(--ivory)}
+.docs-layout{display:grid;grid-template-columns:250px 1fr;gap:48px;align-items:start;margin-top:44px}
+.docs-nav{position:sticky;top:84px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--line);padding-right:20px}
+.docs-nav button{text-align:left;background:transparent;border:1px solid transparent;border-radius:8px;padding:10px 14px;font-family:var(--sans);font-size:13.5px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .15s ease}
+.docs-nav button:hover{color:var(--ink);background:var(--sand)}
+.docs-nav button.active{color:var(--clay-d);background:var(--sand);border-color:var(--line);font-weight:600}
+.docs-nav button .num{font-family:var(--mono);font-size:11px;color:var(--clay);margin-right:8px}
+
+.docs-panel{display:none}
+.docs-panel.active{display:block;animation:fadeIn .2s ease-in-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
+.docs-content h3{font-size:24px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.docs-content h4{font-size:18px;margin:28px 0 12px}
+.docs-content p{color:var(--ink2);margin-bottom:16px;line-height:1.65}
+.docs-content ul{list-style:disc;margin:14px 0 20px 24px;color:var(--ink2)}
+.docs-content li{margin-bottom:8px}
+.docs-card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin:24px 0}
+.docs-mini-card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:20px;transition:border-color .15s}
+.docs-mini-card:hover{border-color:var(--clay)}
+.docs-mini-card h4{font-size:16px;margin-bottom:8px}
+.docs-mini-card p{font-size:13.5px;margin:0}
 
 /* Footer */
-footer{padding:64px 0 48px}
+footer{padding:64px 0 48px;background:var(--ivory);border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
 footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px;font-weight:600}
 footer ul{list-style:none} footer li{margin-bottom:9px}
-footer a{font-size:14px;color:var(--ink2);text-decoration:none} footer a:hover{color:var(--clay-d)}
+footer a{font-size:14px;color:var(--ink2);text-decoration:none;transition:color .15s} footer a:hover{color:var(--clay-d)}
 .colophon{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--ink3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 @media(max-width:900px){
   .metrics .wrap{grid-template-columns:repeat(2,1fr)}
   .metric{border-left:none;border-top:1px solid var(--line)}
   .split,.cards{grid-template-columns:1fr}
-  nav ul li:nth-child(-n+3){display:none}
+  nav.site-nav ul li:nth-child(-n+3){display:none}
+  .docs-layout{grid-template-columns:1fr}
+  .docs-nav{position:static;border-right:none;border-bottom:1px solid var(--line);padding-right:0;padding-bottom:14px;flex-direction:row;overflow-x:auto}
+  .docs-nav button{white-space:nowrap}
+  .docs-card-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<nav><div class="wrap">
-  <a class="logo" href="/MZSAE/">MZ<span>SAE</span></a>
+<nav class="site-nav"><div class="wrap">
+  <a class="logo" href="#">MZ<span>SAE</span></a>
   <ul>
-    <li><a href="/MZSAE/#mechanism">Mechanism</a></li>
-    <li><a href="/MZSAE/#benchmarks">Benchmarks</a></li>
-    <li><a href="/MZSAE/#coverage">Coverage</a></li>
-    <li><a href="/MZSAE/docs/">Documentation</a></li>
-    <li><a class="btn sm ghost" href="https://github.com/mohamedhossammohamed/MZSAE">GitHub ↗</a></li>
+    <li><a href="#mechanism">Mechanism</a></li>
+    <li><a href="#benchmarks">Benchmarks</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#docs" class="active">Documentation</a></li>
+    <li><a class="btn sm ghost" href="https://github.com/mohamedhossammohamed/MZSAE" target="_blank" rel="noopener">GitHub ↗</a></li>
   </ul>
 </div></nav>
 
@@ -144,7 +178,7 @@ footer a{font-size:14px;color:var(--ink2);text-decoration:none} footer a:hover{c
   <p class="lede">Autoregressive decoding is not compute-bound — it is choked by the memory bus. MZSAE evaluates 64-byte semantic sentinels in cache before a single byte crosses DRAM, and manages eviction with a biologically-inspired policy loop. The result: edge devices that remember like brains, not like FIFO queues.</p>
   <div class="hero-cta">
     <a class="btn primary" href="#mechanism">Read the mechanism</a>
-    <a class="btn ghost" href="https://github.com/mohamedhossammohamed/MZSAE/releases/tag/v1.3.0">Release notes</a>
+    <a class="btn ghost" href="#docs">Browse documentation</a>
     <span class="install"><b>$</b> pip install mzsae</span>
   </div>
   <div class="hero-meta">
@@ -230,6 +264,214 @@ U_b ≥ m_local − τ</aside>
   </div>
 </div></section>
 
+<!-- ==========================================================================
+     INTEGRATED DOCUMENTATION SUITE (Built on the exact same architecture)
+     ========================================================================== -->
+<section id="docs"><div class="wrap">
+  <div class="eyebrow">Technical Reference · Deep Dive</div>
+  <h2>System Architecture & Documentation</h2>
+  <p class="lede">Exhaustive specification of the dual-plane memory hierarchy, mathematical proofs of attention neutrality, hardware kernel execution models, and red-team audit disclosures.</p>
+
+  <div class="docs-layout">
+    <!-- Left Navigation Tabs -->
+    <div class="docs-nav" role="tablist">
+      <button class="docs-nav-btn active" data-tab="tab-quickstart"><span class="num">01</span>Quickstart & Usage</button>
+      <button class="docs-nav-btn" data-tab="tab-architecture"><span class="num">02</span>Architectural Core</button>
+      <button class="docs-nav-btn" data-tab="tab-rope"><span class="num">03</span>RoPE Decoupling</button>
+      <button class="docs-nav-btn" data-tab="tab-eviction"><span class="num">04</span>Neuromorphic Eviction</button>
+      <button class="docs-nav-btn" data-tab="tab-quantization"><span class="num">05</span>Quantization Formats</button>
+      <button class="docs-nav-btn" data-tab="tab-hardware"><span class="num">06</span>Hardware & Backends</button>
+      <button class="docs-nav-btn" data-tab="tab-api"><span class="num">07</span>API Reference</button>
+      <button class="docs-nav-btn" data-tab="tab-limitations"><span class="num">08</span>Red-Team Limitations</button>
+    </div>
+
+    <!-- Right Content Panels -->
+    <div class="docs-content">
+
+      <!-- TAB 1: QUICKSTART -->
+      <div id="tab-quickstart" class="docs-panel active">
+        <h3>01 · Quickstart & Integration Guide</h3>
+        <p>The <strong>MZahran Sparse Attention Engine (MZSAE)</strong> is a hardware-aware sparse continual attention runtime that eliminates the KV-cache memory wall during long-context LLM inference.</p>
+
+        <h4>Installation</h4>
+        <pre><span class="c"># Direct package install (PyPI / wheel)</span>
+pip install mzsae
+
+<span class="c"># Or install from source with Metal C-extensions compiled</span>
+git clone https://github.com/mohamedhossammohamed/MZSAE.git
+cd MZSAE
+make
+pip install -e .</pre>
+
+        <h4>1. PyTorch Drop-in Module (<code>MZSAEAttention</code>)</h4>
+        <p>Drop-in replacement for standard multi-head attention and grouped-query attention layers:</p>
+        <pre><span class="k">import</span> torch
+<span class="k">from</span> mzsae <span class="k">import</span> MZSAEAttention
+
+<span class="c"># Initialize module with automatic hardware profiling</span>
+attn = MZSAEAttention(
+    embed_dim=2048,
+    num_heads=16,
+    num_kv_heads=4,
+    hardware_profile=<span class="s">"auto"</span>  <span class="c"># Auto-detects Apple M1..M4 or CUDA</span>
+)
+
+<span class="c"># Standard attention call: [batch, seq_len, heads, head_dim]</span>
+out = attn(q, k, v, causal=<span class="k">True</span>)</pre>
+
+        <h4>2. Apple MLX Zero-Copy Streaming</h4>
+        <p>Run native Metal decode directly from MLX arrays without PyTorch tensor conversions:</p>
+        <pre><span class="k">import</span> numpy <span class="k">as</span> np, mlx.core <span class="k">as</span> mx
+<span class="k">from</span> mzsae <span class="k">import</span> MZSAEEngine, load_config
+
+engine = MZSAEEngine(config=load_config(<span class="s">"auto"</span>))
+engine.cache.ingest_prefill(np.array(k_mlx), np.array(v_mlx))
+
+<span class="c"># Selective decode streams only approved blocks</span>
+out_np, telemetry = engine.selective_decode(np.array(q_mlx), return_telemetry=<span class="k">True</span>)
+print(f<span class="s">"Pruned blocks: {telemetry['pruning_ratio']*100:.1f}%"</span>)</pre>
+      </div>
+
+      <!-- TAB 2: ARCHITECTURAL CORE -->
+      <div id="tab-architecture" class="docs-panel">
+        <h3>02 · Architectural Core & Dual-Plane Cache</h3>
+        <p>Standard attention mechanisms treat the KV cache as a monolithic contiguous DRAM buffer. In contrast, MZSAE implements a biologically-inspired dual-plane memory hierarchy:</p>
+
+        <div class="docs-card-grid">
+          <div class="docs-mini-card">
+            <h4>Plane-1: DRAM Compressed Payload</h4>
+            <p>Full Key and Value activations quantized into 2-bit affine residual blocks aligned to 128-byte cache lines. Read selectively on demand.</p>
+          </div>
+          <div class="docs-mini-card">
+            <h4>Plane-2: L2-Resident Sentinels</h4>
+            <p>Compact 64-byte centroid descriptors cached in fast on-chip SRAM/L2. Evaluated in GPU registers to verify block relevance before DRAM reads.</p>
+          </div>
+        </div>
+
+        <h4>Cauchy–Schwarz Upper Bounding</h4>
+        <p>To determine if an evicted or un-streamed block in DRAM can impact attention logits, MZSAE evaluates a provably tight Cauchy–Schwarz upper bound on the dot product:</p>
+        <pre>U_b = (⟨q_s, s_s⟩ + ‖q_s‖ · R_Δ + C_f) / √d</pre>
+        <p>If $U_b < m_{\text{local}} - \tau$, the block's Plane-1 payload is guaranteed to contribute insignificantly to the softmax denominator. The GPU branches past the DRAM bus transaction entirely.</p>
+      </div>
+
+      <!-- TAB 3: ROPE MANIFOLD DECOUPLING -->
+      <div id="tab-rope" class="docs-panel">
+        <h3>03 · RoPE Manifold Decoupling</h3>
+        <p>Rotary Position Embeddings (RoPE) rotate Key vectors based on absolute token position. Naive sparse attention fails because high-frequency rotations cause norm estimates to oscillate unpredictably across temporal positions.</p>
+
+        <h4>Frequency Decoupling Strategy</h4>
+        <p>MZSAE bifurcates the embedding channels into two orthogonal manifolds:</p>
+        <ul>
+          <li><strong>Slow Semantic Manifold (Dimensions 112–127):</strong> Quasi-static positional frequencies that preserve semantic alignment for sentinel dot products and directional veto gating.</li>
+          <li><strong>Fast Positional Manifold (Dimensions 0–111):</strong> Rapidly rotating dimensions bounded by maximum circular radius $C_f$, guaranteeing positional safety without distorting magnitude bounds.</li>
+        </ul>
+        <pre><span class="c"># Decoupling split enforced across all heads</span>
+Dim_RoPE     = {112 ... 127}  <span class="c"># Slow manifold (semantic anchor)</span>
+Dim_Semantic = {0 ... 111}    <span class="c"># Fast manifold (bounded radius)</span></pre>
+      </div>
+
+      <!-- TAB 4: NEUROMORPHIC EVICTION -->
+      <div id="tab-eviction" class="docs-panel">
+        <h3>04 · Neuromorphic Eviction Policy & TD(0)</h3>
+        <p>Rather than using crude First-In-First-Out (FIFO) or recency truncation, MZSAE orchestrates cache eviction through a three-stage biological control loop:</p>
+
+        <table>
+          <thead><tr><th>Brain Region</th><th>MZSAE Component</th><th>Operational Invariant</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Orbitofrontal Cortex (OFC)</strong></td><td><code>TDAttnPolicy</code> (27k MLP)</td><td>Estimates expected future retention value via Temporal Difference TD(0) reinforcement learning.</td></tr>
+            <tr><td><strong>Anterior Cingulate (ACC)</strong></td><td><code>DirectionalVeto</code></td><td>Hard cosine threshold ($\cos \theta_{\text{slow}} &gt; 0.40$) preventing eviction of semantically crucial tokens.</td></tr>
+            <tr><td><strong>Hippocampus</strong></td><td><code>TelemetryRingBuffer</code></td><td>Circular replay buffer recording cache hit/miss transitions for background consolidation.</td></tr>
+          </tbody>
+        </table>
+
+        <h4>Temporal Difference Learning Rule</h4>
+        <pre>V(s) ← V(s) + α [ r + γ · V(s′) − V(s) ]</pre>
+        <p>The value network continuously learns which temporal blocks correlate with downstream answer generation, maintaining 100% NIAH accuracy under strict 2,048-token physical limits.</p>
+      </div>
+
+      <!-- TAB 5: QUANTIZATION FORMATS -->
+      <div id="tab-quantization" class="docs-panel">
+        <h3>05 · Quantization & Format Orthogonality</h3>
+        <p>A fundamental property of MZSAE is that <strong>model weight quantization</strong> and <strong>KV-cache compression</strong> operate at completely orthogonal pipeline stages. MZSAE ingests post-projection linear activations, making it universally compatible with any quantized LLM.</p>
+
+        <table>
+          <thead><tr><th>Model Precision</th><th>Bits/Weight</th><th>Typical Runtime</th><th>MZSAE Compatibility</th></tr></thead>
+          <tbody>
+            <tr><td><strong>FP16 / BF16</strong></td><td>16</td><td>PyTorch, HuggingFace</td><td><span class="ok">✅ Native Out-of-the-box</span></td></tr>
+            <tr><td><strong>INT8 / Q8_0</strong></td><td>8</td><td>llama.cpp, BitsAndBytes</td><td><span class="ok">✅ Native Out-of-the-box</span></td></tr>
+            <tr><td><strong>Q4_K_M / AWQ / GPTQ</strong></td><td>4</td><td>vLLM, AutoAWQ, GGUF</td><td><span class="ok">✅ Native Out-of-the-box</span></td></tr>
+            <tr><td><strong>Q2_K / QuIP#</strong></td><td>2</td><td>llama.cpp, QuIP#</td><td><span class="ok">✅ Supported (scale=0.8)</span></td></tr>
+            <tr><td><strong>BitNet b1.58 Ternary</strong></td><td>1.58</td><td>Microsoft BitNet</td><td><span class="up">✅ Tuned Mode (τ × 0.7)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TAB 6: HARDWARE PROFILES -->
+      <div id="tab-hardware" class="docs-panel">
+        <h3>06 · Hardware Profiles & Kernel Backends</h3>
+        <p>MZSAE automatically adapts sentinel budgets, threadgroup tile sizes, and memory splits based on hardware memory bandwidth:</p>
+
+        <table>
+          <thead><tr><th>Profile</th><th>Target Device</th><th>DRAM Bandwidth</th><th>L2/SLC Budget</th><th>Backend</th></tr></thead>
+          <tbody>
+            <tr><td><code>apple_m1</code></td><td>Apple M1 / M2 / M3</td><td>68.25 GB/s</td><td>12 MB</td><td>Metal MSL 3.1</td></tr>
+            <tr><td><code>apple_m4</code></td><td>Apple M4 Base</td><td>120.0 GB/s</td><td>16 MB</td><td>Metal MSL 3.1</td></tr>
+            <tr><td><code>apple_m4_max</code></td><td>Apple M4 Max</td><td>410.0 GB/s</td><td>48 MB</td><td>Metal MSL 3.1</td></tr>
+            <tr><td><code>nvidia_h100</code></td><td>NVIDIA H100 SXM5</td><td>3,350 GB/s</td><td>50 MB</td><td>CUDA SM90 / Triton</td></tr>
+            <tr><td><code>nvidia_gh200</code></td><td>Grace Hopper GH200</td><td>4,000 GB/s</td><td>50 MB</td><td>CUDA SM90 / TMA</td></tr>
+            <tr><td><code>nvidia_b200</code></td><td>Blackwell B200 SXM</td><td>8,000 GB/s</td><td>60 MB</td><td>CUDA SM100 / Triton</td></tr>
+            <tr><td><code>default</code></td><td>Portable Fallback</td><td>120.0 GB/s</td><td>16 MB</td><td>CPU SIMD Reference</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TAB 7: API REFERENCE -->
+      <div id="tab-api" class="docs-panel">
+        <h3>07 · API Reference</h3>
+        <p>Core interfaces exposed by the <code>mzsae</code> Python runtime:</p>
+
+        <h4><code>mzsae.MZSAEAttention</code></h4>
+        <pre><span class="k">class</span> MZSAEAttention(nn.Module):
+    <span class="k">def</span> __init__(
+        self,
+        embed_dim: int,
+        num_heads: int,
+        num_kv_heads: Optional[int] = <span class="k">None</span>,
+        hardware_profile: str = <span class="s">"auto"</span>,
+        max_context: int = 131072,
+        block_size: int = 64
+    ) -> <span class="k">None</span>: ...</pre>
+
+        <h4><code>mzsae.load_config</code></h4>
+        <pre>config = mzsae.load_config(profile_name=<span class="s">"apple_m4"</span>)
+<span class="c"># Returns MZSAEConfig with hardware, kernel, eviction, and cache settings</span></pre>
+
+        <h4><code>mzsae.MZSAEEngine</code></h4>
+        <pre><span class="k">class</span> MZSAEEngine:
+    <span class="k">def</span> selective_decode(
+        self,
+        q: np.ndarray,
+        return_telemetry: bool = <span class="k">False</span>
+    ) -> Tuple[np.ndarray, Dict[str, Any]]: ...</pre>
+      </div>
+
+      <!-- TAB 8: LIMITATIONS -->
+      <div id="tab-limitations" class="docs-panel">
+        <h3>08 · Red-Team Audit & Limitations</h3>
+        <p>In accordance with empirical research standards, MZSAE establishes clear boundary conditions where sparse attention trade-offs must be acknowledged:</p>
+
+        <ul>
+          <li><strong>Short-Context Crossover (&lt;2,048 tokens):</strong> Below ~2k context, standard dense attention is faster. Pass-0 sentinel estimation represents pure overhead until the memory bus saturates.</li>
+          <li><strong>DRAM Gating Telemetry:</strong> Reported DRAM reductions are derived from kernel-observed block prune counts ($1 - \text{approved}/\text{total}$), not direct hardware current sensors.</li>
+          <li><strong>Needle Dilution Invariance:</strong> Synthetic RoPE beacon needles achieve 100% retrieval. However, semantic needles whose vector norms match background noise can suffer from attention logit dilution.</li>
+        </ul>
+        <p>Read the complete technical red-team report in <a href="https://github.com/mohamedhossammohamed/MZSAE/blob/main/docs/LIMITATIONS.md" target="_blank" rel="noopener"><code>docs/LIMITATIONS.md</code></a>.</p>
+      </div>
+
+    </div>
+  </div>
+</div></section>
+
 <section id="limits"><div class="wrap">
   <div class="eyebrow">Known limits</div>
   <h2>What we will not overclaim.</h2>
@@ -251,10 +493,10 @@ out  = attn(q, k, v, causal=<span class="k">True</span>)</pre>
     <li><a href="https://github.com/mohamedhossammohamed/MZSAE/releases">Releases</a></li>
     <li><a href="https://pypi.org/project/mzsae/">PyPI</a></li></ul></div>
   <div><h4>Research</h4><ul>
-    <li><a href="/MZSAE/docs/ARCHITECTURE/">Architecture</a></li>
-    <li><a href="/MZSAE/docs/NEUTRALITY_PROOF/">Neutrality proof</a></li>
-    <li><a href="/MZSAE/docs/SCALING_LAWS/">Scaling laws</a></li>
-    <li><a href="/MZSAE/docs/LIMITATIONS/">Limitations</a></li></ul></div>
+    <li><a href="#docs" onclick="showTab('tab-architecture')">Architecture</a></li>
+    <li><a href="#docs" onclick="showTab('tab-rope')">RoPE Decoupling</a></li>
+    <li><a href="#docs" onclick="showTab('tab-eviction')">Neuromorphic Policy</a></li>
+    <li><a href="#docs" onclick="showTab('tab-limitations')">Limitations Audit</a></li></ul></div>
   <div><h4>Community</h4><ul>
     <li><a href="https://github.com/mohamedhossammohamed/MZSAE/issues">Issues</a></li>
     <li><a href="https://github.com/mohamedhossammohamed/MZSAE/blob/main/CONTRIBUTING.md">Contributing</a></li>
@@ -264,6 +506,38 @@ out  = attn(q, k, v, causal=<span class="k">True</span>)</pre>
     <span>Set in Source Serif 4, Inter & JetBrains Mono</span>
   </div>
 </div></footer>
+
+<script>
+function showTab(tabId) {
+  const btns = document.querySelectorAll('.docs-nav-btn');
+  const panels = document.querySelectorAll('.docs-panel');
+  btns.forEach(b => b.classList.toggle('active', b.getAttribute('data-tab') === tabId));
+  panels.forEach(p => p.classList.toggle('active', p.id === tabId));
+  if (history.replaceState) {
+    history.replaceState(null, null, '#' + tabId);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.docs-nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showTab(btn.getAttribute('data-tab'));
+    });
+  });
+
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) {
+    if (hash.startsWith('tab-')) {
+      showTab(hash);
+      const docsEl = document.getElementById('docs');
+      if (docsEl) docsEl.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+});
+</script>
 
 </body>
 </html>

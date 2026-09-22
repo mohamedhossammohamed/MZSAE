@@ -5,8 +5,6 @@ on:
     branches: ["main"]
     paths:
       - "landing/**"
-      - "docs/**"
-      - "mkdocs.yml"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -20,44 +18,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install MkDocs + plugins
-        run: |
-          pip install mkdocs-material
-          pip install "mkdocstrings[python]"
-          pip install mkdocs-git-revision-date-localized-plugin
-          pip install mkdocs-minify-plugin
-          pip install mkdocs-awesome-pages-plugin
-
-      - name: Build docs sub-site
-        run: mkdocs build -d site/docs
-
-      - name: Stage landing at root
-        run: |
-          cp -r landing/. site/
-
-      - uses: actions/configure-pages@v4
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/checkout@v4
+      - name: Stage site
+        run: |
+          mkdir -p site
+          cp -r landing/. site/
+          mkdir -p site/docs
+          cp landing/index.html site/docs/index.html
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
       - id: deployment
         uses: actions/deploy-pages@v4

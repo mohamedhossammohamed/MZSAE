@@ -435,3 +435,374 @@ hr {
 [data-md-color-scheme="slate"] hr {
   border-top-color: var(--line-dark);
 }
+
+/* ==========================================================================
+   Cohesive Site Header (Matches Landing Page Navigation)
+   ========================================================================== */
+
+.md-header__inner {
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px;
+}
+
+.site-header-logo-link {
+  text-decoration: none !important;
+  margin-right: 12px;
+}
+
+.site-header-logo {
+  font-family: var(--serif) !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--ink) !important;
+}
+
+[data-md-color-scheme="slate"] .site-header-logo {
+  color: var(--ink-dark) !important;
+}
+
+.site-header-logo span {
+  color: var(--clay) !important;
+}
+
+.site-header-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-header-nav a {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink2);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+[data-md-color-scheme="slate"] .site-header-nav a {
+  color: var(--ink2-dark);
+}
+
+.site-header-nav a:hover,
+.site-header-nav a.active {
+  color: var(--ink) !important;
+}
+
+[data-md-color-scheme="slate"] .site-header-nav a:hover,
+[data-md-color-scheme="slate"] .site-header-nav a.active {
+  color: var(--ink-dark) !important;
+}
+
+.site-header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.header-github-btn {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-decoration: none !important;
+  border: 1px solid var(--line);
+  color: var(--ink) !important;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+[data-md-color-scheme="slate"] .header-github-btn {
+  border-color: var(--line-dark);
+  color: var(--ink-dark) !important;
+}
+
+.header-github-btn:hover {
+  border-color: var(--ink) !important;
+}
+
+[data-md-color-scheme="slate"] .header-github-btn:hover {
+  border-color: var(--ink-dark) !important;
+}
+
+@media (max-width: 900px) {
+  .site-header-nav {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Editorial Landing Components in Documentation
+   ========================================================================== */
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+p.lede {
+  font-size: clamp(17px, 1.6vw, 19px) !important;
+  color: var(--ink2) !important;
+  max-width: 68ch !important;
+  line-height: 1.65 !important;
+  margin-bottom: 24px !important;
+}
+
+[data-md-color-scheme="slate"] p.lede {
+  color: var(--ink2-dark) !important;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 28px 0 20px;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 20px 0 32px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink3);
+}
+
+[data-md-color-scheme="slate"] .hero-meta {
+  color: var(--ink3-dark);
+}
+
+.install-badge {
+  font-family: var(--mono);
+  font-size: 13.5px;
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 18px;
+  color: var(--ink2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+[data-md-color-scheme="slate"] .install-badge {
+  background: var(--sand-dark);
+  border-color: var(--line-dark);
+  color: var(--ink2-dark);
+}
+
+.install-badge b {
+  color: var(--clay);
+  font-weight: 500;
+}
+
+/* 4-Metric Editorial Band */
+.metrics-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 32px 0 12px;
+}
+
+[data-md-color-scheme="slate"] .metrics-band {
+  background: var(--paper-dark);
+  border-color: var(--line-dark);
+}
+
+.metric-item {
+  padding: 28px 22px;
+  border-left: 1px solid var(--line);
+}
+
+.metric-item:first-child {
+  border-left: none;
+}
+
+[data-md-color-scheme="slate"] .metric-item {
+  border-left-color: var(--line-dark);
+}
+
+.metric-item .metric-val {
+  font-family: var(--mono);
+  font-size: clamp(24px, 2.4vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+[data-md-color-scheme="slate"] .metric-item .metric-val {
+  color: var(--ink-dark);
+}
+
+.metric-item .metric-val em {
+  font-style: normal;
+  color: var(--clay);
+}
+
+.metric-item .metric-lbl {
+  font-size: 13px;
+  color: var(--ink2);
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+[data-md-color-scheme="slate"] .metric-item .metric-lbl {
+  color: var(--ink2-dark);
+}
+
+.metric-fineprint {
+  font-size: 12.5px;
+  color: var(--ink3);
+  margin-bottom: 36px;
+  line-height: 1.5;
+}
+
+[data-md-color-scheme="slate"] .metric-fineprint {
+  color: var(--ink3-dark);
+}
+
+@media (max-width: 800px) {
+  .metrics-band {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .metric-item:nth-child(3) {
+    border-left: none;
+    border-top: 1px solid var(--line);
+  }
+  .metric-item:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+  [data-md-color-scheme="slate"] .metric-item:nth-child(3),
+  [data-md-color-scheme="slate"] .metric-item:nth-child(4) {
+    border-top-color: var(--line-dark);
+  }
+}
+
+/* Mechanism Cards */
+.mech-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 28px 0;
+}
+
+@media (max-width: 800px) {
+  .mech-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mech-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px 22px;
+  transition: border-color 0.18s;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-md-color-scheme="slate"] .mech-card {
+  background: var(--paper-dark);
+  border-color: var(--line-dark);
+}
+
+.mech-card:hover {
+  border-color: var(--clay);
+}
+
+.mech-card .n {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--clay);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.mech-card h3 {
+  font-size: 20px !important;
+  margin: 6px 0 10px !important;
+}
+
+.mech-card p {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+[data-md-color-scheme="slate"] .mech-card p {
+  color: var(--ink2-dark);
+}
+
+.mech-card .eq {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--ink);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+[data-md-color-scheme="slate"] .mech-card .eq {
+  color: var(--ink-dark);
+  border-top-color: var(--line-dark);
+}
+
+/* Candid Honesty Callout Box */
+.honest-box {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--clay);
+  border-radius: 10px;
+  padding: 28px 30px;
+  margin: 32px 0;
+}
+
+[data-md-color-scheme="slate"] .honest-box {
+  background: var(--paper-dark);
+  border-color: var(--line-dark);
+  border-left-color: var(--clay-bright);
+}
+
+.honest-box h3 {
+  font-size: 19px !important;
+  margin: 0 0 10px !important;
+}
+
+.honest-box p {
+  font-size: 14.5px;
+  color: var(--ink2);
+  line-height: 1.6;
+  margin: 0 !important;
+}
+
+[data-md-color-scheme="slate"] .honest-box p {
+  color: var(--ink2-dark);
+}
+
+.honest-box a {
+  color: var(--clay-d);
+  font-weight: 500;
+}
+
+[data-md-color-scheme="slate"] .honest-box a {
+  color: var(--clay-bright);
+}
+

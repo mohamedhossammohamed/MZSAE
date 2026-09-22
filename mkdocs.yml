@@ -11,6 +11,7 @@ copyright: Copyright &copy; 2026 Mohammed Hossam — Apache 2.0 License
 
 theme:
   name: material
+  custom_dir: overrides
   logo: assets/logo.svg
   favicon: assets/favicon.ico
   font:

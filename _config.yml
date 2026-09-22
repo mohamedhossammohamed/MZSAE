@@ -1,0 +1,10 @@
+title: MZSAE
+description: Neuromorphic Sparse Attention Engine — breaking the Apple Silicon memory wall
+theme: jekyll-theme-cayman
+show_downloads: false
+google_analytics:
+baseurl: "/MZSAE"
+url: "https://mohamedhossammohamed.github.io"
+github:
+  is_project_page: true
+  repository_url: "https://github.com/mohamedhossammohamed/MZSAE"

@@ -1,0 +1,38 @@
+name: Question
+description: Ask a question about using or understanding MZSAE
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question about the dual-plane KV cache, RoPE manifold decoupling, or something else? Ask away!
+  - type: dropdown
+    id: category
+    attributes:
+      label: Question Category
+      options:
+        - Usage & API
+        - Architecture / Theory
+        - Benchmarks & Performance
+        - Contributing / Development
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question Text
+      description: What would you like to know?
+    validations:
+      required: true
+  - type: textarea
+    id: tried
+    attributes:
+      label: What have you already tried?
+      description: Let us know what steps you've taken to find the answer.
+  - type: textarea
+    id: docs
+    attributes:
+      label: Relevant Docs Read
+      description: Which documentation files have you reviewed? (e.g., docs/LIMITATIONS.md)

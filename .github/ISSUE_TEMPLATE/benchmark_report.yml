@@ -1,0 +1,67 @@
+name: Benchmark Report
+description: Submit performance data for MZSAE
+title: "[Benchmark]: "
+labels: ["benchmark"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please share your performance results using our benchmark scripts.
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware Profile
+      description: Apple chip, memory size, macOS version
+      placeholder: e.g., Apple M4 Max, 128GB RAM, macOS 14.5
+    validations:
+      required: true
+  - type: dropdown
+    id: script
+    attributes:
+      label: Benchmark Script Used
+      options:
+        - bench_niah.py
+        - bench_flash_attn_niah.py
+        - bench_real_weights.py
+        - bench_selective_fetch.py
+        - Custom (please specify in comments)
+    validations:
+      required: true
+  - type: input
+    id: context_length
+    attributes:
+      label: Context Length
+      placeholder: e.g., 32k, 128k, 1M
+    validations:
+      required: true
+  - type: textarea
+    id: results
+    attributes:
+      label: Results Table
+      description: Please provide latency, throughput, memory usage, and pruning ratio (e.g., Cauchy-Schwarz sentinel pruning stats).
+      value: |
+        | Metric | Value |
+        | --- | --- |
+        | Latency (TTFT) | |
+        | Throughput (tok/s) | |
+        | Peak Memory (GB) | |
+        | Pruning Ratio (%) | |
+    validations:
+      required: true
+  - type: input
+    id: baseline
+    attributes:
+      label: Comparison Baseline
+      description: What are you comparing against?
+      placeholder: e.g., MLX SDPA, dense FP16, HuggingFace Transformers
+    validations:
+      required: true
+  - type: textarea
+    id: commands
+    attributes:
+      label: Reproduction Commands
+      description: The exact commands used to run the benchmark.
+      render: shell
+      placeholder: python bench_niah.py --ctx-len 128000
+    validations:
+      required: true

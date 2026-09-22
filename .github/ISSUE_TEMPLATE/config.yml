@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🚀 Quickstart Guide
+    url: docs/quickstart.md
+    about: Get up and running with MZSAE quickly.
+  - name: ⚠️ Known Limitations
+    url: docs/LIMITATIONS.md
+    about: Please review the red-team audit before reporting an issue or filing a PR.

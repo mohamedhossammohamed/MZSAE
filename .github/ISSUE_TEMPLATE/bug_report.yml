@@ -1,0 +1,75 @@
+name: Bug Report
+description: File a bug report for MZSAE
+title: "[Bug]: "
+labels: ["bug", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report for the Neuromorphic Sparse Attention Engine (MZSAE)!
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of what the bug is.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this bug?
+      placeholder: |
+        1. Initialize engine with...
+        2. Run inference with prompt...
+        3. Observe error...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened? Please include tracebacks/logs if applicable.
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: Hardware Profile
+      description: Apple M1, M4, M4 Max, etc., and memory size
+      placeholder: e.g., Apple M4 Max, 128GB RAM
+    validations:
+      required: true
+  - type: input
+    id: os_version
+    attributes:
+      label: macOS Version
+      placeholder: e.g., macOS 14.5
+    validations:
+      required: true
+  - type: input
+    id: env_versions
+    attributes:
+      label: Python / PyTorch / MLX Versions
+      placeholder: e.g., Python 3.10.12, PyTorch 2.2.0, Metal MSL 3.1
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - Critical (Crash, data corruption, unusable)
+        - High (Major feature broken, no workaround)
+        - Medium (Workaround exists, non-critical feature)
+        - Low (Cosmetic, minor annoyance)
+    validations:
+      required: true

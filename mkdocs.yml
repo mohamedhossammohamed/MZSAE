@@ -1,0 +1,105 @@
+site_name: MZSAE — Neuromorphic Sparse Attention Engine
+site_description: Breaking the Apple Silicon memory wall with biological eviction
+site_author: Mohammed Hossam
+site_url: https://mohamedhossammohamed.github.io/MZSAE/
+
+repo_name: mohamedhossammohamed/MZSAE
+repo_url: https://github.com/mohamedhossammohamed/MZSAE
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; 2026 Mohammed Hossam — MIT License
+
+theme:
+  name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.ico
+  palette:
+    - scheme: slate
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - git-revision-date-localized
+  - minify:
+      minify_html: true
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.arith:
+      inline_syntax: dollar
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: quickstart.md
+    - Configuration: configuration.md
+    - Hardware Profiles: hardware_profiles.md
+  - Architecture:
+    - Foundations: ARCHITECTURE.md
+    - Neutrality Proof: NEUTRALITY_PROOF.md
+    - Scaling Laws: SCALING_LAWS.md
+  - Advanced:
+    - Model Support: models.md
+    - Quantization: QUANTIZATION.md
+    - Limitations: LIMITATIONS.md
+  - Benchmarks:
+    - Overview: benchmarks.md
+    - NIAH Results: niah_results.md
+    - FlashAttention Comparison: flashattn_comparison.md
+  - Development:
+    - Contributing: CONTRIBUTING.md
+    - Roadmap: roadmap.md
+    - Changelog: CHANGELOG.md
+  - API Reference: api.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mohamedhossammohamed/MZSAE
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/MohamedHz72007
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/mzsae/
+  analytics:
+    provider: google
+    property: !ENV [GA_TRACKING_ID, ""]

@@ -479,7 +479,7 @@ kernel void mzsae_selective_decode_stage1(
             }
 
             // RED-TEAM VERIFIED: Pruned blocks execute 0 DRAM payload reads.
-            // \ branches past ALL Plane-1 device_loads below
+            // `continue` branches past ALL Plane-1 device_loads below
             // (k_centroids/k_scales/k_mins fetch + k_payload/v_payload
             // dequant loop). Only the 64B Plane-2 sentinel (L2-resident)
             // + q-register reads above this point are touched. Sinks and

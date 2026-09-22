@@ -1,0 +1,48 @@
+name: Feature Request
+description: Suggest an idea for MZSAE
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing an idea to the Neuromorphic Sparse Attention Engine!
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: A clear and concise description of what you want.
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use Case / Motivation
+      description: Why is this feature needed? What problem does it solve?
+    validations:
+      required: true
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Proposed Implementation
+      description: (Optional) How would you implement this?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What alternative solutions or features have you considered?
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component Affected
+      options:
+        - Core Engine
+        - Metal Backend
+        - Eviction Policy (TD(0) RL)
+        - Veto Mechanism
+        - API
+        - Documentation
+        - Benchmarks
+        - Other
+    validations:
+      required: true

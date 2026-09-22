@@ -30,7 +30,8 @@ jobs:
           mkdir -p site
           cp -r landing/. site/
           mkdir -p site/docs
-          cp landing/index.html site/docs/index.html
+          cp -r landing/assets site/docs/assets
+          sed 's|content="https://mohamedhossammohamed.github.io/MZSAE/"|content="https://mohamedhossammohamed.github.io/MZSAE/docs/"|g; s|href="https://mohamedhossammohamed.github.io/MZSAE/"|href="https://mohamedhossammohamed.github.io/MZSAE/docs/"|g' landing/index.html > site/docs/index.html
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:

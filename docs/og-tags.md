@@ -49,7 +49,7 @@ Schema.org JSON-LD helps search engines like Google understand the exact nature 
   },
   "description": "A neuromorphic sparse attention engine for Apple Silicon Metal featuring TD(0) RL eviction, Cauchy-Schwarz sentinel pruning, and RoPE manifold decoupling. Delivers 6.50x speedup over MLX SDPA at 128k context length.",
   "programmingLanguage": ["Python", "Metal Shading Language"],
-  "license": "https://opensource.org/licenses/MIT",
+  "license": "https://opensource.org/licenses/Apache-2.0",
   "version": "1.2.0",
   "codeRepository": "https://github.com/mohamedhossammohamed/MZSAE",
   "runtimePlatform": "Apple Silicon (macOS)",

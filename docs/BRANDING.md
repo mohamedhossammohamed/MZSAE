@@ -61,7 +61,7 @@ Use standard [Shields.io](https://shields.io/) badges with the `flat` style. Use
 **Markdown Example:**
 ```markdown
 ![Version](https://img.shields.io/badge/version-1.2.0-58A6FF?style=flat)
-![License: MIT](https://img.shields.io/badge/license-MIT-A371F7?style=flat)
+![License: Apache 2.0](https://img.shields.io/badge/license-Apache_2.0-A371F7?style=flat)
 ![Hardware](https://img.shields.io/badge/metal-MSL_3.1-0D1117?style=flat&logo=apple)
 ```
 

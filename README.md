@@ -13,7 +13,7 @@
 
 **Breaking the Apple Silicon memory wall with biologically-inspired selective fetch**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-3776AB.svg?logo=python&logoColor=white)](https://www.python.org/downloads/)
 [![PyPI](https://img.shields.io/badge/PyPI-v1.2.0-58A6FF.svg?logo=pypi&logoColor=white)](https://pypi.org/project/mzsae/)
 [![Platform](https://img.shields.io/badge/platform-macOS_|_Apple_Silicon-brightgreen.svg?logo=apple&logoColor=white)]()
@@ -337,7 +337,7 @@ Scaling: 1.84× time for 2.00× context — super-linear from GQA 6:1 threadgrou
 mzsae/
 ├── pyproject.toml              # Build-system & packaging specification
 ├── Makefile                    # Developer targets (all, test, package, clean)
-├── LICENSE                     # MIT License
+├── LICENSE                     # Apache 2.0 License
 ├── README.md                   # This file
 ├── configs/                    # Hardware configuration profiles (YAML)
 │   ├── default.yaml
@@ -449,7 +449,7 @@ If you use MZSAE in your research, please cite:
   year      = {2026},
   url       = {https://github.com/mohamedhossammohamed/MZSAE},
   version   = {1.2.0},
-  license   = {MIT},
+  license   = {Apache-2.0},
   note      = {Hardware-sympathetic sparse attention with RoPE manifold decoupling,
                Cauchy-Schwarz sentinel pruning, and neuromorphic TD(0) eviction
                for Apple Silicon edge inference}
@@ -478,7 +478,7 @@ If you use MZSAE in your research, please cite:
 
 <div align="center">
 
-**MIT License** · Copyright © 2026 Mohammed Hossam Zahran
+**Apache 2.0 License** · Copyright © 2026 Mohammed Hossam Zahran
 
 [![GitHub](https://img.shields.io/badge/GitHub-mohamedhossammohamed-181717?style=flat&logo=github)](https://github.com/mohamedhossammohamed)
 [![X / Twitter](https://img.shields.io/badge/@MohamedHz72007-000000?style=flat&logo=x&logoColor=white)](https://twitter.com/MohamedHz72007)

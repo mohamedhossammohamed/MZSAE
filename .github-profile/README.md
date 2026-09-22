@@ -19,7 +19,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-mohamedhossammohamed-181717?style=flat&logo=github)](https://github.com/mohamedhossammohamed)
 [![X / Twitter](https://img.shields.io/badge/@MohamedHz72007-000000?style=flat&logo=x&logoColor=white)](https://twitter.com/MohamedHz72007)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat)](https://opensource.org/licenses/MIT)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
 
 </div>
 

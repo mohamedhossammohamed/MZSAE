@@ -7,14 +7,14 @@ name = "mzsae"
 version = "1.2.0"
 description = "Neuromorphic Sparse Attention Engine: Hardware-Sympathetic Sparse Continual Attention on Apple Silicon"
 readme = "README.md"
-license = { text = "MIT" }
+license = { text = "Apache-2.0" }
 authors = [{ name = "Mohammed Hossam Zahran" }]
 keywords = ["attention", "sparse-attention", "apple-silicon", "metal", "kv-cache", "llm-inference", "pytorch"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
     "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",

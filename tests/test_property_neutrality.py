@@ -4,7 +4,17 @@ Verifies MZSAE invariant stability across randomly generated parameter configura
 """
 
 import numpy as np
-from hypothesis import given, strategies as st, settings
+import pytest
+
+try:
+    from hypothesis import given, strategies as st, settings
+    HAS_HYPOTHESIS = True
+except ImportError:
+    HAS_HYPOTHESIS = False
+
+if not HAS_HYPOTHESIS:
+    pytest.skip("hypothesis not installed", allow_module_level=True)
+
 from src.mzsae.neutral import MZSAENeutralWrapper, StandardAttentionWrapper
 
 

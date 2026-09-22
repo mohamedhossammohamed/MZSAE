@@ -11,10 +11,21 @@ from typing import Optional, List, Dict, Any
 try:
     import torch
     import torch.nn as nn
-    from transformers.cache_utils import DynamicCache
     HAS_TORCH = True
 except ImportError:
     HAS_TORCH = False
+
+try:
+    from transformers.cache_utils import DynamicCache
+    HAS_TRANSFORMERS = True
+except ImportError:
+    HAS_TRANSFORMERS = False
+
+    class DynamicCache:  # type: ignore
+        """Fallback base class when transformers is not installed."""
+
+        def __init__(self, *args, **kwargs):
+            self.layers = []
 
 def quantize_mzsae_cand_f(k: "torch.Tensor", v: "torch.Tensor", num_sinks: int = 4, recent_win: int = 64):
     """

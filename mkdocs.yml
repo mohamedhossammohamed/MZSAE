@@ -1,7 +1,7 @@
 site_name: MZSAE — Neuromorphic Sparse Attention Engine
 site_description: Breaking the Apple Silicon memory wall with biological eviction
 site_author: Mohammed Hossam
-site_url: https://mohamedhossammohamed.github.io/MZSAE/
+site_url: https://mohamedhossammohamed.github.io/MZSAE/docs/
 
 repo_name: mohamedhossammohamed/MZSAE
 repo_url: https://github.com/mohamedhossammohamed/MZSAE
@@ -69,6 +69,7 @@ markdown_extensions:
       permalink: true
 
 nav:
+  - "← Back to site": https://mohamedhossammohamed.github.io/MZSAE/
   - Home: index.md
   - Getting Started:
     - Installation: quickstart.md

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mzsae"
-version = "1.2.0"
+version = "1.3.0"
 description = "Neuromorphic Sparse Attention Engine: Hardware-Sympathetic Sparse Continual Attention on Apple Silicon"
 readme = "README.md"
 license = { text = "Apache-2.0" }

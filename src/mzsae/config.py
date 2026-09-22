@@ -48,6 +48,8 @@ class KernelConfig:
     sentinel_bytes: int = 64
     threadgroup_size: int = 256
     num_splits: int = 64
+    sparse_threshold_tokens: int = 2048
+    adaptive_dispatch: bool = True
 
 
 @dataclass

@@ -138,7 +138,8 @@ class CUDABackend(MZSAEBackend):
         seq_len: int,
         num_splits: int = 64,
         recent_win: int = 64,
-    ) -> np.ndarray:
+        return_gpu_time: bool = False,
+    ) -> Any:
         """
         Executes fused compressed attention decode on NVIDIA hardware.
         """

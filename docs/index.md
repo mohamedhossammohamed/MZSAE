@@ -164,15 +164,15 @@ xychart-beta
     bar [0.93, 1.71]
 ```
 
-*(First bar: MLX SDPA, Second bar: MZSAE Selective Decode)*
+*(First bar: MLX SDPA, Second bar: MZSAE Selective Decode — Per-layer attention decode latency)*
 
-| Context Length | MLX SDPA | MZSAE Decode | Speedup | DRAM Cut | NIAH (Budgeted) |
+| Context Length | MLX SDPA | MZSAE Decode | Speedup | Kernel Block Cut (Est.) | NIAH (2k Budget) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **4,096** | 1.84 ms | 1.25 ms | **1.47×** | 83.9% | **100.0%** (vs 60%) |
 | **8,192** | 3.25 ms | 1.88 ms | **1.73×** | 83.9% | **100.0%** (vs 20%) |
 | **16,384** | 6.12 ms | 3.10 ms | **1.97×** | 83.9% | **100.0%** (vs 0% collapse) |
-| **64,000** | 5.27 ms | 0.93 ms | **5.66×** | 95.9% | **100.0%** |
-| **128,000** | 11.14 ms | 1.71 ms | **6.50×** | 95.9% | **100.0%** |
+| **64,000** | 5.27 ms | 0.93 ms | **5.66×** | 95.9% | N/A (tested to 16k) |
+| **128,000** | 11.14 ms | 1.71 ms | **6.50×** | 95.9% | N/A (tested to 16k) |
 
 > [!NOTE]
-> Detailed red-team disclosures and edge cases are thoroughly documented in [LIMITATIONS.md](LIMITATIONS.md).
+> NIAH evaluations were conducted under a strict 2,048-token physical memory ceiling using synthetic RoPE beacon needles. Timings reflect single-layer decode latency; detailed red-team disclosures and edge cases are documented in [LIMITATIONS.md](LIMITATIONS.md).

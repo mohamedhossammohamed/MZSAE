@@ -38,6 +38,8 @@ class MZSAEEngine:
         use_metal: Optional[bool] = None,
         tau: Optional[float] = None,
         backend: Optional[MZSAEBackend] = None,
+        sparse_threshold_tokens: Optional[int] = None,
+        adaptive: Optional[bool] = None,
     ):
         k_cfg = getattr(config, "kernel", None) if config is not None else None
         e_cfg = getattr(config, "eviction", None) if config is not None else None
@@ -58,6 +60,10 @@ class MZSAEEngine:
             use_metal = getattr(config, "use_metal", True) if config is not None else True
         if tau is None:
             tau = getattr(e_cfg, "default_tau", 16.0) if e_cfg else 16.0
+        if sparse_threshold_tokens is None:
+            sparse_threshold_tokens = getattr(k_cfg, "sparse_threshold_tokens", 2048) if k_cfg else 2048
+        if adaptive is None:
+            adaptive = getattr(k_cfg, "adaptive_dispatch", True) if k_cfg else True
 
         if mw_cfg is not None:
             tau = tau * getattr(mw_cfg, "tau_multiplier", 1.0)
@@ -69,6 +75,8 @@ class MZSAEEngine:
         self.capacity_blocks = capacity_blocks
         self.use_metal = use_metal
         self.tau = tau
+        self.sparse_threshold_tokens = sparse_threshold_tokens
+        self.adaptive = adaptive
         self.weight_config = getattr(config, "model_weights", None) if config is not None else None
 
         self.cache = MZSAEKVCache(
@@ -138,7 +146,7 @@ class MZSAEEngine:
         return final_loss
 
     def decode_step(
-        self, q: np.ndarray
+        self, q: np.ndarray, force_sparse: bool = False
     ) -> Tuple[np.ndarray, Dict[str, Any]]:
         is_1d = q.ndim == 1
         if is_1d:
@@ -148,14 +156,38 @@ class MZSAEEngine:
         else:
             q_in = q.astype(np.float32)
 
-        out, telemetry = self.selective_decode(
-            q_in, tau=self.tau, return_telemetry=True
-        )
+        seq_len = self.cache.total_tokens
+        # Adaptive Hybrid Dispatch:
+        # At short context (< sparse_threshold_tokens), memory wall is not reached.
+        # Bypass Sentinel Pass 0 and run dense fused_decode for peak SRAM efficiency.
+        if (
+            self.adaptive
+            and self.sparse_threshold_tokens > 0
+            and seq_len < self.sparse_threshold_tokens
+            and not force_sparse
+        ):
+            out, gpu_us = self.decode(q_in, return_gpu_time=True)
+            tot_blocks = self.cache.total_active_blocks
+            telemetry = {
+                "gpu_us": float(gpu_us),
+                "latency_us": float(gpu_us),
+                "approved_blocks": tot_blocks,
+                "total_blocks": tot_blocks,
+                "pruning_ratio": 0.0,
+                "dispatch_mode": "dense_bypass",
+            }
+        else:
+            out, telemetry = self.selective_decode(
+                q_in, tau=self.tau, return_telemetry=True
+            )
+            if telemetry is not None:
+                telemetry["dispatch_mode"] = "sparse_selective"
+
         if is_1d:
             return out[0], telemetry
         return out, telemetry
 
-    def decode(self, q: np.ndarray) -> np.ndarray:
+    def decode(self, q: np.ndarray, return_gpu_time: bool = False) -> Any:
         """
         Executes single-token decode for query of shape [num_q_heads, head_dim].
         """
@@ -174,6 +206,7 @@ class MZSAEEngine:
             recent_v=bufs["recent_v"],
             seq_len=bufs["seq_len"],
             num_splits=self.num_splits,
+            return_gpu_time=return_gpu_time,
         )
 
     def selective_decode(

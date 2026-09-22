@@ -48,7 +48,8 @@ class CPUReferenceBackend(MZSAEBackend):
         seq_len: int,
         num_splits: int = 64,
         recent_win: int = 64,
-    ) -> np.ndarray:
+        return_gpu_time: bool = False,
+    ) -> Any:
         # Fused decode on CPU processes all blocks without sentinel pruning
         num_blocks = k_centroids.shape[0] if k_centroids.ndim > 0 else 0
         num_kv_heads = sinks_k.shape[1] if sinks_k.ndim > 1 else 2
@@ -71,6 +72,8 @@ class CPUReferenceBackend(MZSAEBackend):
             tau=1e9,  # Approve all
             recent_win=recent_win,
         )
+        if return_gpu_time:
+            return out, 0.0
         return out
 
     def selective_decode(

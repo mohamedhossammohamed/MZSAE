@@ -102,15 +102,24 @@ embeddings from a frozen LLM**, not `np.random.randn` + forced spikes
 (roadmap). A dynamic-τ ACC veto and value-aware re-weighting are the
 candidate mitigations.
 
-## 4. E2E Overhead: When Dense Is Still Faster
+## 4. Short-Context Overhead & Adaptive Hybrid Dispatch Resolution
 
-MZSAE adds a **Pass 0 (Sentinel Eval + local-max)** overhead before selective
-decode. For very short contexts (< 2k tokens) the memory wall hasn't been hit
-and dense FlashAttention is still faster — the sentinel pass is pure overhead.
+MZSAE historically incurred a **Pass 0 (Sentinel Eval + local-max)** overhead before selective
+decode. For short contexts (< 2k tokens) the memory wall hasn't been hit
+and dense FlashAttention is faster — the sentinel pass was pure overhead.
+MZSAE's memory bandwidth ROI begins at **~4k+ context** and grows with context length, where
+dense attention chokes on DRAM bandwidth.
 
-MZSAE's ROI begins at **~4k+ context** and grows with context length, where
-dense attention chokes on DRAM bandwidth. Do not benchmark MZSAE at 512 tokens
-and claim a speedup.
+**Resolution (Adaptive Hybrid Dispatch):**
+To eliminate short-context regression, `MZSAEEngine` implements an automatic hybrid dispatch:
+- **$N < 2,048$ tokens:** The engine bypasses Pass 0 entirely, dispatching directly to
+  `backend.fused_decode` (`dispatch_mode="dense_bypass"`). This delivers native dense SRAM/ALU
+  speed without sentinel overhead.
+- **$N \ge 2,048$ tokens:** The engine automatically transitions to `backend.selective_decode`
+  (`dispatch_mode="sparse_selective"`), activating Plane-2 sentinel bounds and biological eviction
+  veto where DRAM bus saturation occurs.
+- **Audit Override:** A `force_sparse: bool = False` flag allows auditors and benchmarks to force
+  Plane-2 sentinel evaluation at any context length for kernel verification.
 
 ## 5. Random Tensor Caveat (Shape ≠ Semantics)
 

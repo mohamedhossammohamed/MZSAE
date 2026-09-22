@@ -16,6 +16,7 @@ tools_llamacpp/capture_qkv
 # Distribution / packaging
 build/
 dist/
+site/
 *.egg-info/
 .eggs/
 

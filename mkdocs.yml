@@ -13,19 +13,22 @@ theme:
   name: material
   logo: assets/logo.svg
   favicon: assets/favicon.ico
+  font:
+    text: Inter
+    code: JetBrains Mono
   palette:
-    - scheme: slate
-      primary: deep purple
-      accent: cyan
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
     - scheme: default
-      primary: deep purple
-      accent: cyan
+      primary: black
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.instant
     - navigation.tracking
@@ -38,6 +41,9 @@ theme:
     - content.action.edit
   icon:
     repo: fontawesome/brands/github
+
+extra_css:
+  - assets/stylesheets/anthropic.css
 
 plugins:
   - search

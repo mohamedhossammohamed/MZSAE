@@ -14,7 +14,7 @@ pip install -e .
 
 ### Direct Wheel Installation
 ```bash
-pip install dist/mzsae-1.2.0-py3-none-any.whl
+pip install dist/mzsae-1.3.0-py3-none-any.whl
 ```
 
 ## Quick Usage

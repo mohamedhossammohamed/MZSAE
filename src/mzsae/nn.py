@@ -151,7 +151,9 @@ class MZSAEAttention(nn.Module if HAS_TORCH else object):
         # Prefill / Multi-token sequence (T > 1)
         else:
             if use_cache:
-                self.engine.ingest_kv_chunk(k_proj[0], v_proj[0])
+                k_chunk = k_proj[0].detach().cpu().numpy()
+                v_chunk = v_proj[0].detach().cpu().numpy()
+                self.engine.ingest_kv_chunk(k_chunk, v_chunk)
 
             # Compute standard SDPA for prefill, returning full sequence representation
             q_sdpa = q_proj.transpose(1, 2)  # [batch, num_heads, seq_len, head_dim]

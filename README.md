@@ -58,19 +58,19 @@ By decoupling Rotary Position Embeddings (RoPE) into fast and slow manifolds, MZ
 <br/>
 
 <!-- Replace with actual recording: `asciinema rec demo.cast && svg-term --in demo.cast --out docs/assets/demo.svg` -->
-```
-$ python -c "
-from mzsae import MZSAEAttention
+```bash
+python3 -c '
 import torch
+from mzsae import MZSAEAttention
 
 attn = MZSAEAttention(embed_dim=2048, num_heads=16, num_kv_heads=4)
 q = torch.randn(1, 16, 16, 128)
 k = torch.randn(1, 16, 4, 128)
 v = torch.randn(1, 16, 4, 128)
 out = attn(q, k, v, causal=True)
-print(f'Output: {out.shape}')  # [1, 16, 16, 128]
-"
-Output: torch.Size([1, 16, 16, 128])
+print("Output:", out.shape)
+'
+# Output: Output: torch.Size([1, 16, 16, 128])
 ```
 
 *Full animated demo coming soon. Record with `asciinema` and convert with `svg-term`.*

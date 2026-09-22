@@ -86,6 +86,10 @@ nav:
     - Overview: benchmarks.md
     - NIAH Results: niah_results.md
     - FlashAttention Comparison: flashattn_comparison.md
+  - Branding & Media:
+    - Brand Guidelines: BRANDING.md
+    - Social Preview Spec: SOCIAL_PREVIEW.md
+    - Open Graph Metadata: og-tags.md
   - Development:
     - Contributing: CONTRIBUTING.md
     - Roadmap: roadmap.md

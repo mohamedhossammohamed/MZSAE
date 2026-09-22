@@ -50,7 +50,7 @@ MZSAE relies on `pytest` for unit testing. Our suite includes 47 tests across 15
 1. Fork the repository and create your branch from `main`.
 2. Follow commit conventions (clear, descriptive commit messages).
 3. Ensure your code passes all linting (`ruff check .`), formatting (`ruff format .`), and tests (`make test`).
-4. Read and acknowledge the red-team audit in [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md) to understand the project's current boundaries and known issues.
+4. Read and acknowledge the red-team audit in [`LIMITATIONS.md`](LIMITATIONS.md) to understand the project's current boundaries and known issues.
 5. Open a Pull Request on GitHub.
 
 ## Architecture Overview

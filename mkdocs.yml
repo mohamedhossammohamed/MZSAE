@@ -61,7 +61,7 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
-  - pymdownx.arith:
+  - pymdownx.arithmatex:
       inline_syntax: dollar
   - attr_list
   - md_in_html

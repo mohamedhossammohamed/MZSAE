@@ -52,3 +52,18 @@ mzsae = [
 [tool.pytest.ini_options]
 pythonpath = ["."]
 testpaths = ["tests"]
+
+[tool.ruff]
+src = ["src", "tests"]
+exclude = [
+    "fastattn*",
+    "tools_llamacpp",
+    "work_*",
+    "analyze_*.py",
+    "validate_*.py",
+    "capture_*.py",
+    "replay_*.py",
+    "run_*.py",
+    "verdict.py",
+    "bench_*.py",
+]
